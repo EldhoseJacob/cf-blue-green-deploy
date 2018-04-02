@@ -229,8 +229,11 @@ func (p *CfPlugin) listCfDomains(cfPath string) (domains []string, err error) {
 	if err = json.Unmarshal([]byte(jsonString), &response); err != nil {
 		return
 	}
-
+	log.Fatalf("Hello this is eldhose. :) My log is showing up!")
 	for i, _ := range response.Resources {
+		log.Fatalf("Logging entity Name")
+		log.Fatalf(response.Resources[i].Entity.Name)
+		log.Fatalf("Logged entity Name")
 		domains = append(domains, response.Resources[i].Entity.Name)
 	}
 	return
